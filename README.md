@@ -10,6 +10,7 @@ I plan to implement the following ideas so far:
 * Fan-in examples
 * Request-response examples
 * Subscription cleanup examples
+* Client/server interfaces for testability
 
 The above techniques were discussed in Google I/O talks on Go Concurrency
 from 2012 (Rob Pike's talk) and 2013.
