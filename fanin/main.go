@@ -4,6 +4,7 @@ import (
   "log"
   "time"
   "strconv"
+  "math/rand"
 )
 
 type Message interface {
@@ -69,8 +70,10 @@ func quoteSource(ticker string) <-chan Message {
   c := make(chan Message)
   go func(t string) {
     for {
-      c<- &quote{ ticker: t, price: 1234, currency: "USD" }
-      time.Sleep(1 * time.Second)
+      price := rand.Int63n(200)
+      c<- &quote{ ticker: t, price: price, currency: "USD" }
+      delay := rand.Int63n(1000)
+      time.Sleep(time.Duration(delay) * time.Millisecond)
     }
   }(ticker)
   return c
